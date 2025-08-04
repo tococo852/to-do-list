@@ -73,28 +73,3 @@ h6 {
 #__next {
   isolation: isolate;
 }
-.header {
-  display: flex;
-  justify-content: center;
-  gap: 3rem;
-  background-color: rgb(173, 116, 10);
-  height: 5rem;
-  align-items: center;
-}
-.homeButton {
-  background-color: rgb(161, 150, 99);
-  padding: 0.4rem 1rem;
-  margin: 0;
-  border-radius: 30px;
-  border: none;
-}
-body {
-  background-color: grey;
-  display: flex;
-  justify-content: center;
-}
-.borders {
-  width: 80%;
-  background-color: aliceblue;
-  height: 100vh;
-}

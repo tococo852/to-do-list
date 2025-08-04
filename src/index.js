@@ -1,5 +1,5 @@
 import "./styles.css";
-
+import {createToDo} from './toDoObject/toDoObject.js'
 if (process.env.NODE_ENV !== "production") {
   console.log("Looks like we are in development mode!");
 }
@@ -22,7 +22,14 @@ document.addEventListener("click", (e) => {
 window.addEventListener(
   "DOMContentLoaded",
   function () {
+    const toDo=createToDo('title1','','','','','')
+    toDo.displayData()
+    toDo.changeTitle('newtitle')
+    let a=toDo.displayData()
+    console.log(a)
+
     // on load, sethome should run by itself so the page is not blank
+    //ToDo()
   },
   false,
 );
