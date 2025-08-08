@@ -17,7 +17,7 @@ const createToDo=(id,title, description, dueDate, priority, checklist)=>{
     let _data={id,title,description,dueDate,priority,checklist}
 
     const changeTitle=(newTitle)=>{_data.title=newTitle}
-    const changeDescription=(newDesc)=>{_data.desc=newDescription}
+    const changeDescription=(newDescription)=>{_data.desc=newDescription}
     const changeDueDate=(newDueDate)=>{_data.dueDate=newDueDate}
     const changePrio=()=>{
         let newPrio=_data.priority++
@@ -29,12 +29,14 @@ const createToDo=(id,title, description, dueDate, priority, checklist)=>{
         _data.checklist= checklist!=true
     }
 
-
+    const getId=()=>{return _data.id}
     const getData=()=>{
-        console.log(_data)
         return {..._data}
     }
-    return {changeTitle,changeDescription,changeDueDate,changePrio,changeCheckList,getData}
+    const displayData=()=>{
+        console.log(_data)
+    }
+    return {changeTitle,changeDescription,changeDueDate,changePrio,changeCheckList,getData,getId,displayData}
 }
 
 export {createToDo};
