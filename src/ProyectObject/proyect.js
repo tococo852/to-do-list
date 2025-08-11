@@ -34,7 +34,7 @@ const createProyect=(oldWorkId,oldToDoId,workList)=>{
         return null
     }
     //recives new work object and adds it to the list
-    const AddWor=(newWorkk)=>{Works.push(newWork)}
+    const AddWork=(newWorkk)=>{Works.push(newWork)}
     //must delete the target work in the list and all its todo's
     const DeleteWork=(workId)=>{
         return workList.splice(getIndex(workList,workId),1)
@@ -63,7 +63,8 @@ const createProyect=(oldWorkId,oldToDoId,workList)=>{
 
 
 
-    return {}
+    return {getNewWorkId,getNewToDoId,AddWork,DeleteWork,EditWork,editToDoInWork,MoveToDoInWork}
 
 
 }
+export {createProyect}

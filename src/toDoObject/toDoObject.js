@@ -20,13 +20,14 @@ const createToDo=(id,title, description, dueDate, priority, checklist)=>{
     const changeDescription=(newDescription)=>{_data.desc=newDescription}
     const changeDueDate=(newDueDate)=>{_data.dueDate=newDueDate}
     const changePrio=()=>{
-        let newPrio=_data.priority++
-        if (newPrio>3){newPrio=0}
-        _data.priority=newPrio
+        _data.priority++
+        console.log(_data.priority)
+        if (_data.priority>3){_data.priority=0}
+
 
     }
     const changeCheckList=()=>{
-        _data.checklist= checklist!=true
+        _data.checklist= _data.checklist!=true
     }
 
     const getId=()=>{return _data.id}
