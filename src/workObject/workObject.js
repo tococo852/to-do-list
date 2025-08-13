@@ -14,14 +14,17 @@ const createWork =(id,name,toDoList)=>{
         }
         return null
     }
+    const editToDo=(toDoId,toDoData)=>{
+
+    }
     //change to splice instead of filter to avoid deleting the reference
     const removeToDo=(toDoId)=>{
-        return workList.splice(getIndex(ToDos,toDoId),1)
+        return toDos.splice(getIndex(toDos,toDoId),1)
     }
     //it must fint 
     const getToDo=(toDoId)=>{
         return toDos.filter(currToDo=>{
-                return currToDo.id===toDoId
+                return currToDo.getId()===toDoId
     
             })[0]
 }

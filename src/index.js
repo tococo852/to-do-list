@@ -29,9 +29,12 @@ window.addEventListener(
     let toDo2 = createToDo(proyect.getNewToDoId(),"title2", "desc", "date", 0, false);
     let toDo3 = createToDo(proyect.getNewToDoId(),"title3", "desc", "date", 0, false);
     let toDo4 = createToDo(proyect.getNewToDoId(),"title1", "desc", "date", 0, false);
-    toDo1.displayData()
-    toDo2.displayData()
-    toDo3.displayData()
+    let work1= createWork(proyect.getNewWorkId,'work1',[toDo1,toDo2,toDo3] )
+    work1.addTodo(toDo4)
+    work1.removeToDo(4)
+    console.log(work1.getToDosList().map(toDo=>{toDo.displayData()
+      return toDo
+    }))
 
     // on load, sethome should run by itself so the page is not blank
     //ToDo()
