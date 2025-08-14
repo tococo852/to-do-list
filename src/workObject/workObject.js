@@ -1,4 +1,4 @@
-const createWork =(id,name,toDoList)=>{
+const createWork =({id,name,toDoList})=>{
     let proyectName=name
     let _id=id
     let toDos=toDoList
@@ -8,26 +8,21 @@ const createWork =(id,name,toDoList)=>{
     const getId=()=>{return _id}
     const addTodo=(toDo)=>{toDos.push(toDo)}
     const getIndex=(list,id)=>{
-        let index= list.findIndex(obj => obj.id === id);
+        let index= list.findIndex(obj => obj.getId() === id);
         if (index >= 0 ){
             return index
         }
         return null
     }
-    const editToDo=(toDoId,toDoData)=>{
 
-    }
     //change to splice instead of filter to avoid deleting the reference
     const removeToDo=(toDoId)=>{
         return toDos.splice(getIndex(toDos,toDoId),1)
     }
     //it must fint 
-    const getToDo=(toDoId)=>{
-        return toDos.filter(currToDo=>{
-                return currToDo.getId()===toDoId
-    
-            })[0]
+    const getToDoById=(toDoId)=>{
+        return toDos[getIndex(toDos, toDoId)]
 }
-    return {changeName, getName, getToDosList,addTodo,removeToDo,getId,getToDo}
+    return {changeName, getName, getToDosList,addTodo,removeToDo,getId,getToDoById}
 }
 export{createWork}

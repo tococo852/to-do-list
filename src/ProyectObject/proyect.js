@@ -27,12 +27,15 @@ const createProyect=(oldWorkId,oldToDoId,workList)=>{
         return _currToDoId
     }
     const getIndex=(list,id)=>{
-        let index= list.findIndex(obj => obj.id === id);
+        let index= list.findIndex(obj => obj.getId() === id);
         if (index >= 0 ){
             return index
         }
         return null
     }
+    const getWorkById=(workId)=>{
+        return Works[getIndex(Works, workId)]
+}
     //recives new work object and adds it to the list
     const AddWork=(newWorkk)=>{Works.push(newWork)}
     //must delete the target work in the list and all its todo's
@@ -63,7 +66,7 @@ const createProyect=(oldWorkId,oldToDoId,workList)=>{
 
 
 
-    return {getNewWorkId,getNewToDoId,AddWork,DeleteWork,EditWork,editToDoInWork,MoveToDoInWork}
+    return {getNewWorkId,getNewToDoId,AddWork,DeleteWork,EditWork,editToDoInWork,MoveToDoInWork,getWorkById}
 
 
 }

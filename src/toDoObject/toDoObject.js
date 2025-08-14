@@ -13,7 +13,7 @@ changeCheckList, is a boolean true or false for a checkbox, it will swap its val
 
 getData gives A COPY of the data the object has, to change object values, please refer to change functions
 */
-const createToDo=(id,title, description, dueDate, priority, checklist)=>{
+const createToDo=({id,title, description, dueDate, priority, checklist})=>{
     let _data={id,title,description,dueDate,priority,checklist}
 
     const changeTitle=(newTitle)=>{_data.title=newTitle}
