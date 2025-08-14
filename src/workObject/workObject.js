@@ -23,6 +23,13 @@ const createWork =({id,name,toDoList})=>{
     const getToDoById=(toDoId)=>{
         return toDos[getIndex(toDos, toDoId)]
 }
-    return {changeName, getName, getToDosList,addTodo,removeToDo,getId,getToDoById}
+    const getData=()=>{
+        return {
+            name:proyectName,
+            id:_id,
+            toDoList:toDos
+        }
+    }
+    return {getData,changeName, getName, getToDosList,addTodo,removeToDo,getId,getToDoById}
 }
 export{createWork}

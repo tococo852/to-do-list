@@ -53,18 +53,27 @@ const objectGenerator=(proyect)=>{
 window.addEventListener(
   "DOMContentLoaded",
   function () {
-    let proyect=createProyect(0,0,[])
+    let proyect=createProyect({oldWorkId:0,oldToDoId:0,workList:[]})
     let maker=objectGenerator(proyect)
     let toDo1 = createToDo(maker.makeToDo());
-    let toDo2 = createToDo(maker.makeToDo());
-    let toDo3 = createToDo(maker.makeToDo());
-    let toDo4 = createToDo(maker.makeToDo());
     let work1= createWork(maker.makeWork(4))
-    work1.addTodo(toDo4)
-    work1.getToDoById(5).changeTitle('changed by ref')
     
+    work1.addTodo(toDo1)
+    work1.getToDoById(1).changeTitle('changed by ref')
     work1.getToDosList().map(toDo=>{toDo.displayData()
     })
+    let work2=createWork(maker.makeWork(3))
+    let work3=createWork(maker.makeWork(5))
+    let work4=createWork(maker.makeWork(2))
+
+    proyect.AddWork(work1)
+    proyect.AddWork(work2)
+    proyect.AddWork(work3)
+    proyect.AddWork(work4)
+
+    console.log(proyect.getData().workList[0].getData().toDoList[0].getData())
+
+
 
     // on load, sethome should run by itself so the page is not blank
     //ToDo()

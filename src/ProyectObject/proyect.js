@@ -13,7 +13,7 @@ proyect should be the manager of works, so it should be able to
 make new works and manage those works
 */
 
-const createProyect=(oldWorkId,oldToDoId,workList)=>{
+const createProyect=({oldWorkId,oldToDoId,workList})=>{
     let Works=workList
     let _currWorkId=oldWorkId
     let _currToDoId=oldToDoId
@@ -37,7 +37,7 @@ const createProyect=(oldWorkId,oldToDoId,workList)=>{
         return Works[getIndex(Works, workId)]
 }
     //recives new work object and adds it to the list
-    const AddWork=(newWorkk)=>{Works.push(newWork)}
+    const AddWork=(newWork)=>{Works.push(newWork)}
     //must delete the target work in the list and all its todo's
     const DeleteWork=(workId)=>{
         return workList.splice(getIndex(workList,workId),1)
@@ -62,11 +62,19 @@ const createProyect=(oldWorkId,oldToDoId,workList)=>{
 
     }
 
+    const getData=()=>{
+        return {
+            oldToDoId:_currToDoId,
+            oldWorkId:_currWorkId,
+            workList:Works
+        }
+    }
 
 
 
 
-    return {getNewWorkId,getNewToDoId,AddWork,DeleteWork,EditWork,editToDoInWork,MoveToDoInWork,getWorkById}
+
+    return {getData,getNewWorkId,getNewToDoId,AddWork,DeleteWork,EditWork,editToDoInWork,MoveToDoInWork,getWorkById}
 
 
 }
