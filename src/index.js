@@ -50,6 +50,22 @@ const objectGenerator=(proyect)=>{
   return {makeToDo,makeWork}
 
 }
+//move to own module later, turns the factory functions into
+//objects to be able to store it as json
+//uses map to go throught the lists and make objects out of them
+const toJsonData=(proyect)=>{
+  let data=proyect.getData()
+  data.workList=data.workList.map(work => {
+    work=work.getData()
+    work.toDoList=work.toDoList.map(toDo =>{
+      return toDo.getData()
+    })
+    return work
+  })
+  return data
+}
+
+
 window.addEventListener(
   "DOMContentLoaded",
   function () {
@@ -71,8 +87,9 @@ window.addEventListener(
     proyect.AddWork(work3)
     proyect.AddWork(work4)
 
-    console.log(proyect.getData().workList[0].getData().toDoList[0].getData())
-
+    //console.log(proyect.getData().workList[0].getData().toDoList[0].getData())
+    const jsonFile=JSON.stringify(toJsonData(proyect))
+    console.log(jsonFile)
 
 
     // on load, sethome should run by itself so the page is not blank
