@@ -64,6 +64,33 @@ const toJsonData=(proyect)=>{
   })
   return data
 }
+//takes a proyect and stores it in local 
+const storeProyect=(proyect)=>{
+  const jsonFile=JSON.stringify(toJsonData(proyect))
+  localStorage.setItem('userData',jsonFile);
+
+
+}
+//takes a json and turns it back into a proyect object
+
+
+
+const jsonToPoyect=(json)=>{
+  json.workList=json.workList.map(
+    work=>{
+      work.toDoList=work.toDoList.map(createToDo)
+      return createWork(work)
+    }
+  )
+  return createProyect(json)
+
+}
+//loads the proyect from the local storage
+//add situtation :there is no local storage yet
+const loadProyect=()=>{
+  const objectData=JSON.parse(localStorage.getItem('userData'))
+  return jsonToPoyect(objectData)
+}
 
 
 window.addEventListener(
@@ -86,8 +113,20 @@ window.addEventListener(
     proyect.AddWork(work2)
     proyect.AddWork(work3)
     proyect.AddWork(work4)
+    storeProyect(proyect)
+    const proyect2=loadProyect()
 
-    //console.log(proyect.getData().workList[0].getData().toDoList[0].getData())
+    console.log('displaying all toDOs...')
+    proyect2.getData().workList.map(
+      work=>{
+        work.getData().toDoList.map(
+          toDo=>{
+            console.log(toDo.getData())
+          }
+        )
+      }
+    )
+    //console.log(proyect2.getData().workList[0].getData().toDoList[0].getData())
     const jsonFile=JSON.stringify(toJsonData(proyect))
     console.log(jsonFile)
 
