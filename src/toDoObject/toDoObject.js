@@ -13,31 +13,55 @@ changeCheckList, is a boolean true or false for a checkbox, it will swap its val
 
 getData gives A COPY of the data the object has, to change object values, please refer to change functions
 */
-const createToDo=({id,title, description, dueDate, priority, checklist})=>{
-    let _data={id,title,description,dueDate,priority,checklist}
+const createToDo = ({
+  id,
+  title,
+  description,
+  dueDate,
+  priority,
+  checklist,
+}) => {
+  let _data = { id, title, description, dueDate, priority, checklist };
 
-    const changeTitle=(newTitle)=>{_data.title=newTitle}
-    const changeDescription=(newDescription)=>{_data.desc=newDescription}
-    const changeDueDate=(newDueDate)=>{_data.dueDate=newDueDate}
-    const changePrio=()=>{
-        _data.priority++
-        console.log(_data.priority)
-        if (_data.priority>3){_data.priority=0}
-
-
+  const changeTitle = (newTitle) => {
+    _data.title = newTitle;
+  };
+  const changeDescription = (newDescription) => {
+    _data.desc = newDescription;
+  };
+  const changeDueDate = (newDueDate) => {
+    _data.dueDate = newDueDate;
+  };
+  const changePrio = () => {
+    _data.priority++;
+    console.log(_data.priority);
+    if (_data.priority > 3) {
+      _data.priority = 0;
     }
-    const changeCheckList=()=>{
-        _data.checklist= _data.checklist!=true
-    }
+  };
+  const changeCheckList = () => {
+    _data.checklist = _data.checklist != true;
+  };
 
-    const getId=()=>{return _data.id}
-    const getData=()=>{
-        return {..._data}
-    }
-    const displayData=()=>{
-        console.log(_data)
-    }
-    return {changeTitle,changeDescription,changeDueDate,changePrio,changeCheckList,getData,getId,displayData}
-}
+  const getId = () => {
+    return _data.id;
+  };
+  const getData = () => {
+    return { ..._data };
+  };
+  const displayData = () => {
+    console.log(_data);
+  };
+  return {
+    changeTitle,
+    changeDescription,
+    changeDueDate,
+    changePrio,
+    changeCheckList,
+    getData,
+    getId,
+    displayData,
+  };
+};
 
-export {createToDo};
+export { createToDo };
