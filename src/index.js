@@ -1,10 +1,12 @@
 import "./styles.css";
+import { createToDo } from "./toDoObject/toDoObject.js";
+import { createWork } from "./workObject/workObject.js";
 import {
   saveProyect,
   loadProyect,
   deleteProyect,
 } from "./storageManager/storage.js";
-//import {makeWorkElement, makeSidebarElements, displaySidebar} from "./sidebarListDisplay/sidebarListDisplay.js"
+import { displaySidebar} from './sideBarElement/sidebarListDisplay.js'
 if (process.env.NODE_ENV !== "production") {
   console.log("Looks like we are in development mode!");
 }
@@ -47,7 +49,7 @@ const objectGenerator = (proyect) => {
       name: `workName${id}`,
       toDoList,
     };
-    return data;
+    return createWork(data);
   };
   return { makeToDo, makeWork };
 };
@@ -56,6 +58,14 @@ window.addEventListener(
   "DOMContentLoaded",
   function () {
     let proyect = loadProyect();
+    console.log(proyect)
+    let generator=objectGenerator(proyect)
+    proyect.AddWork(generator.makeWork(3))
+    proyect.AddWork(generator.makeWork(2))
+    proyect.AddWork(generator.makeWork(5))
+    displaySidebar(proyect)
+
+
     //console.log(proyect2.getData().workList[0].getData().toDoList[0].getData())
 
     // on load, sethome should run by itself so the page is not blank
