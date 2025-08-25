@@ -111,3 +111,7 @@ body {
   display: flex;
   background-color: beige;
 }
+
+.addToDoButton{
+  align-self:flex-end
+}

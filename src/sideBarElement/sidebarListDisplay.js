@@ -1,10 +1,12 @@
+import { displayWork } from "../displayWorkElement/displayWorkElement";
+import { loadProyect } from "../storageManager/storage";
 //takes a work objects and turns it into an element
 const makeWorkElement = (work) => {
   let workEle = document.createElement("div");
-  workEle.classList.add("workDisplay");
+  workEle.classList.add("workSidebarDisplay");
 
   let workName = document.createElement("div");
-  workName.classList.add("workName");
+  workName.classList.add("workSidebarName");
   workName.setAttribute("data-id", work.getId());
   workName.innerText = work.getName();
 
@@ -23,6 +25,12 @@ const makeWorkElement = (work) => {
   });
 
   workEle.appendChild(toDoListEle)
+  workEle.addEventListener('click',(e)=>{
+    displayWork(
+      work
+    )
+  })
+
   return workEle
 };
 //grabs all works from proyects and creates a list of elements
@@ -38,7 +46,8 @@ const makeSidebarElements = (proyect) => {
   return elementList;
 };
 //takes all the created elements and adds them to the sidebar
-const displaySidebar = (proyect) => {
+const displaySidebar = () => {
+  let proyect = loadProyect();
   let elementList = makeSidebarElements(proyect);
   let sidebar=document.querySelector('.sidebar')
   elementList.map(child=>{

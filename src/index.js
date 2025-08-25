@@ -7,6 +7,8 @@ import {
   deleteProyect,
 } from "./storageManager/storage.js";
 import { displaySidebar} from './sideBarElement/sidebarListDisplay.js'
+import { displayWork } from "./displayWorkElement/displayWorkElement.js";
+import { addToDoButton } from "./AddToDoButton/addToDoButton.js";
 if (process.env.NODE_ENV !== "production") {
   console.log("Looks like we are in development mode!");
 }
@@ -57,14 +59,11 @@ const objectGenerator = (proyect) => {
 window.addEventListener(
   "DOMContentLoaded",
   function () {
-    let proyect = loadProyect();
-    console.log(proyect)
-    let generator=objectGenerator(proyect)
-    proyect.AddWork(generator.makeWork(3))
-    proyect.AddWork(generator.makeWork(2))
-    proyect.AddWork(generator.makeWork(5))
-    displaySidebar(proyect)
-
+    let proyect=loadProyect()
+    displaySidebar()
+    displayWork(proyect.getData().workList[0])
+    const main= document.querySelector('.main')
+    main.appendChild(addToDoButton())
 
     //console.log(proyect2.getData().workList[0].getData().toDoList[0].getData())
 
