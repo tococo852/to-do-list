@@ -13,6 +13,7 @@ const toDoForm=()=>{
 
     let formWindow= document.createElement('div')
     formWindow.classList.add('PopUpWindow')
+    formWindow.classList.add('hidden')
 
     let content=document.createElement('div')
     content.classList.add('popUpFormContainer')
@@ -61,9 +62,9 @@ const toDoForm=()=>{
 
 
 
-    formWindow.appendChild(content)
-    let center= document.querySelector('.center')
-    center.appendChild(formWindow)
+  formWindow.appendChild(content)
+  let center= document.querySelector('.center')
+  center.appendChild(formWindow)
     
 }
 

@@ -63,9 +63,8 @@ window.addEventListener(
     let proyect=loadProyect()
     displaySidebar()
     displayWork(proyect.getData().workList[0])
-    const main= document.querySelector('.main')
-    main.appendChild(addToDoButton())
     toDoForm()
+    addToDoButton()
 
     //console.log(proyect2.getData().workList[0].getData().toDoList[0].getData())
 
