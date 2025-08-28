@@ -13,7 +13,6 @@ const displayWork=(work)=>{
     })
 
     
-    console.log(work.getData())
 }
 
 export {displayWork}

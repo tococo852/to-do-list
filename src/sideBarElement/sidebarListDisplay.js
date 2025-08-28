@@ -39,7 +39,6 @@ const makeSidebarElements = (proyect) => {
   let elementList = [];
   proyect.getData().workList.map(
     work=>{
-      console.log(work)
       elementList.push(makeWorkElement(work))
     }
   )

@@ -1,9 +1,16 @@
 //goal is, returns a button that when pressed, displays a form to
 //add a todo to the current work
 import './addToDoButton.css'
-
+import { loadProyect,saveProyect } from '../storageManager/storage';
+import { createToDo } from '../toDoObject/toDoObject';
  const submitNew=(e)=>{
     e.preventDefault();
+   let data = new FormData(e.target)
+   let toDoData= Object.fromEntries([['id',1],...data.entries()])
+   toDoData.checklist= toDoData.checklist=='on'
+   let newToDo=createToDo(toDoData)
+
+    console.log(newToDo)
     document.querySelector(".closeButton").click();
 
  }

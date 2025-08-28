@@ -47,12 +47,13 @@ const toDoForm=()=>{
   </select><br><br>
 
   <label for="checklist">Completed?:</label><br>
+  <input type="hidden" name="checklist" value="off">
   <input type="checkbox" id="checklist" name="checklist"><br>
   
   </div>
 
 
-    <button type="submit">Submit</button>
+    <button class="ToDoSubmit" type="submit">Submit</button>
 
     
   `;

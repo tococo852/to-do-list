@@ -34,7 +34,6 @@ const createToDo = ({
   };
   const changePrio = () => {
     _data.priority++;
-    console.log(_data.priority);
     if (_data.priority > 3) {
       _data.priority = 0;
     }
@@ -50,7 +49,6 @@ const createToDo = ({
     return { ..._data };
   };
   const displayData = () => {
-    console.log(_data);
   };
   return {
     changeTitle,
