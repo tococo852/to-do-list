@@ -61,6 +61,7 @@ window.addEventListener(
   "DOMContentLoaded",
   function () {
     let proyect=loadProyect()
+
     displaySidebar()
     displayWork(proyect.getData().workList[0])
     toDoForm()

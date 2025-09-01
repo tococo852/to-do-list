@@ -3,15 +3,34 @@
 import './addToDoButton.css'
 import { loadProyect,saveProyect } from '../storageManager/storage';
 import { createToDo } from '../toDoObject/toDoObject';
- const submitNew=(e)=>{
-    e.preventDefault();
-   let data = new FormData(e.target)
-   let toDoData= Object.fromEntries([['id',1],...data.entries()])
-   toDoData.checklist= toDoData.checklist=='on'
-   let newToDo=createToDo(toDoData)
+import { displayWork } from '../displayWorkElement/displayWorkElement';
+import { displaySidebar } from '../sideBarElement/sidebarListDisplay';
+ 
+const submitNew=(e)=>{
+   e.preventDefault();
+   let valid=true
+   if (valid) {
+      let proyect=loadProyect()
+      let data = new FormData(e.target)
+      let toDoData= Object.fromEntries([['id',proyect.getNewToDoId()],...data.entries()])
+      toDoData.checklist= toDoData.checklist=='on'
+      let newToDo=createToDo(toDoData)
 
-    console.log(newToDo)
-    document.querySelector(".closeButton").click();
+      let currWork=document.querySelector('.header')
+      let workId= parseInt(currWork.dataset.id)
+
+      proyect.getWorkById(workId).addTodo(newToDo)
+
+
+      saveProyect(proyect)
+      displaySidebar()
+      displayWork(proyect.getWorkById(workId))
+
+
+      document.querySelector(".closeButton").click();
+
+   }
+   
 
  }
 

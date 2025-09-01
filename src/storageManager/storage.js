@@ -44,7 +44,7 @@ const loadProyect = () => {
     let firstToDo = createToDo(toDoData);
 
     let workData = {
-      id: proyect.getNewWorkId,
+      id: proyect.getNewWorkId(),
       name: `first work to do!`,
       toDoList: [firstToDo],
     };

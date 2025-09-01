@@ -40,6 +40,7 @@ const createWork = ({ id, name, toDoList }) => {
       toDoList: toDos,
     };
   };
+
   return {
     getData,
     changeName,
@@ -48,7 +49,6 @@ const createWork = ({ id, name, toDoList }) => {
     addTodo,
     removeToDo,
     getId,
-    getToDoById,
-  };
+    getToDoById  };
 };
 export { createWork };

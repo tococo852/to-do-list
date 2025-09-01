@@ -49,6 +49,8 @@ const displaySidebar = () => {
   let proyect = loadProyect();
   let elementList = makeSidebarElements(proyect);
   let sidebar=document.querySelector('.sidebar')
+  sidebar.innerHTML=''
+  sidebar.innerText='All your works!'
   elementList.map(child=>{
     sidebar.appendChild(child)
   })
