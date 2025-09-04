@@ -27,7 +27,7 @@ const submitNew=(e)=>{
       displayWork(proyect.getWorkById(workId))
 
 
-      document.querySelector(".closeButton").click();
+      document.querySelector("#toDoCloseButton").click();
 
    }
    
@@ -35,8 +35,8 @@ const submitNew=(e)=>{
  }
 
  const closeForm=(e)=>{
-    let form=document.querySelector('.PopUpWindow')
-    let closeButton=document.querySelector('.closeButton')
+    let form=document.querySelector('#toDoForm')
+    let closeButton=document.querySelector('#toDoCloseButton')
 
     form.removeEventListener('submit',submitNew)
     closeButton.removeEventListener('click', closeForm)
@@ -49,9 +49,9 @@ const submitNew=(e)=>{
  }
 
   const openForm=(e)=>{
-    let form=document.querySelector('.PopUpWindow')
+    let form=document.querySelector('#toDoForm')
     form.classList.remove('hidden')
-    let closeButton=document.querySelector('.closeButton')
+    let closeButton=document.querySelector('#toDoCloseButton')
     closeButton.addEventListener('click',closeForm)
     
     form.addEventListener('submit',submitNew)

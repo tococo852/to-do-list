@@ -1,5 +1,6 @@
 import { displayWork } from "../displayWorkElement/displayWorkElement";
 import { loadProyect } from "../storageManager/storage";
+import { addWorkButton } from "../addWorkButton/addWorkButton";
 //takes a work objects and turns it into an element
 const makeWorkElement = (work) => {
   let workEle = document.createElement("div");
@@ -50,7 +51,12 @@ const displaySidebar = () => {
   let elementList = makeSidebarElements(proyect);
   let sidebar=document.querySelector('.sidebar')
   sidebar.innerHTML=''
-  sidebar.innerText='All your works!'
+
+  let sidebarHeader= document.createElement('div')
+  sidebarHeader.classList.add('sidebarHeader')
+  sidebarHeader.innerHTML='All your works!'
+  sidebarHeader.appendChild(addWorkButton())
+  sidebar.appendChild(sidebarHeader)
   elementList.map(child=>{
     sidebar.appendChild(child)
   })
