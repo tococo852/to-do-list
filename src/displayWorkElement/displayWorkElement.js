@@ -1,5 +1,5 @@
 import { makeToDoCard } from "../toDoCard/toDoCard.js"
-
+import './displayWork.css'
 const displayWork=(work)=>{
     const header=document.querySelector('.header')
     header.innerHTML=work.getName()

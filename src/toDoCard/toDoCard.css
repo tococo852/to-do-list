@@ -1,0 +1,40 @@
+.toDoCard{
+display: flex;
+flex-direction: column;
+}
+
+.top{
+display: flex;
+}
+.toDoCard{
+
+}
+.toDoCheck{
+
+}
+
+.toDoDesc{
+
+}
+
+.toDoDate{
+
+}
+.prios{
+    
+}
+.bottom{
+    display: flex;
+
+}
+
+.buttons{
+
+}
+.moveButton{
+
+}
+.editButton{
+
+}
+
