@@ -27,19 +27,16 @@ const createToDo = ({
     _data.title = newTitle;
   };
   const changeDescription = (newDescription) => {
-    _data.desc = newDescription;
+    _data.description = newDescription;
   };
   const changeDueDate = (newDueDate) => {
     _data.dueDate = newDueDate;
   };
-  const changePrio = () => {
-    _data.priority++;
-    if (_data.priority > 3) {
-      _data.priority = 0;
-    }
+  const changePrio = (newPrio) => {
+    _data.priority=newPrio
   };
-  const changeCheckList = () => {
-    _data.checklist = _data.checklist != true;
+  const changeCheckList = (newCheck) => {
+    _data.checklist = newCheck;
   };
 
   const getId = () => {

@@ -3,10 +3,16 @@ import { loadProyect } from "../storageManager/storage";
 import { displaySidebar } from "../sideBarElement/sidebarListDisplay";
 import { displayWork } from "../displayWorkElement/displayWorkElement";
 
-let wrapper =null
-const submitEdit=(e, workId, toDoId)=>{
-   e.preventDefault();
 
+
+
+
+const editToDoButton=(workId,toDoId)=>{
+
+
+
+const submitEdit=(e)=>{
+   e.preventDefault();
    //to do next
    //load the toDo object corresponding to the ids
    //use that data to fill out the form
@@ -14,19 +20,21 @@ const submitEdit=(e, workId, toDoId)=>{
    //there is no edit todo function in work, get the desired todo reference
    //and use todo functions to edit it according to the form
    
-   let valid=false
-   console.log('editsubmit triggered')
+   let valid=true
    if (valid) {
       let proyect=loadProyect()
       let data = new FormData(e.target)
-      let toDoData= Object.fromEntries([['id',proyect.getNewToDoId()],...data.entries()])
+      let toDoData= Object.fromEntries([['id',toDoId],...data.entries()])
       toDoData.checklist= toDoData.checklist=='on'
-      let newToDo=createToDo(toDoData)
 
-      let currWork=document.querySelector('.header')
-      let workId= parseInt(currWork.dataset.id)
 
-      proyect.getWorkById(workId).addTodo(newToDo)
+      let oldToDo=proyect.getWorkById(workId).getToDoById(toDoId)
+
+      oldToDo.changeTitle(toDoData.title)
+      oldToDo.changeDescription(toDoData.description)
+      oldToDo.changeDueDate(toDoData.dueDate)
+      oldToDo.changePrio(toDoData.priority)
+      oldToDo.changeCheckList(toDoData.checklist)
 
 
       saveProyect(proyect)
@@ -36,7 +44,7 @@ const submitEdit=(e, workId, toDoId)=>{
 
 
    }
-         document.querySelector("#toDoCloseButton").click();
+   document.querySelector("#toDoCloseButton").click();
 
 
  }
@@ -44,9 +52,7 @@ const submitEdit=(e, workId, toDoId)=>{
  const closeForm=(e)=>{
     let formWindow=document.querySelector('#toDoForm')
     let closeButton=document.querySelector('#toDoCloseButton')
-   console.log(wrapper)
-    formWindow.removeEventListener('submit',wrapper)
-    wrapper=null
+    formWindow.removeEventListener('submit',submitEdit)
     closeButton.removeEventListener('click', closeForm)
    let form = document.querySelector('.toDoForm')
    form.reset()
@@ -74,19 +80,19 @@ const submitEdit=(e, workId, toDoId)=>{
    form.elements.namedItem('description').value=toDoData.description
    form.elements.namedItem('dueDate').value=toDoData.dueDate
    form.elements.namedItem('priority').value=toDoData.priority.toString()
-   form.elements.namedItem('checklist').checked=toDoData.checklist 
+   console.log(toDoData.checklist)
+   form.elements.namedItem('checklist')[1].checked=toDoData.checklist 
 
 
-    form.addEventListener('submit',wrapper)
-    wrapper=null
+    formWindow.addEventListener('submit',submitEdit)
 
 
  }
 
 
 
-const editToDoButton=(workId,toDoId)=>{
-    wrapper= (e)=> submitEdit(e,workId, toDoId)
+
+
     openForm(workId,toDoId)
 }
 
