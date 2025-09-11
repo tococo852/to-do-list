@@ -49,6 +49,7 @@ const createWork = ({ id, name, toDoList }) => {
     addTodo,
     removeToDo,
     getId,
-    getToDoById  };
+    getToDoById,
+  };
 };
 export { createWork };

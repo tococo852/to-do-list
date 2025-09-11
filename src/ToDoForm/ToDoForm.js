@@ -4,31 +4,29 @@
 //probably hardest part of this proyect for current me
 
 //needs an edit version and a add version
-import './ToDoForm.css';
+import "./ToDoForm.css";
 //toDoForm is just the form that exist in the background
 //it should always be there hence it should be called by
 //the index on the start of the program
-const toDoForm=()=>{
+const toDoForm = () => {
+  let formWindow = document.createElement("div");
+  formWindow.classList.add("PopUpWindow");
+  formWindow.classList.add("hidden");
+  formWindow.id = "toDoForm";
 
-    let formWindow= document.createElement('div')
-    formWindow.classList.add('PopUpWindow')
-    formWindow.classList.add('hidden')
-    formWindow.id='toDoForm'
+  let content = document.createElement("div");
+  content.classList.add("popUpFormContainer");
 
-    let content=document.createElement('div')
-    content.classList.add('popUpFormContainer')
+  let closeButton = document.createElement("button");
+  closeButton.classList.add("closeButton");
+  closeButton.id = "toDoCloseButton";
 
-    let closeButton= document.createElement('button')
-    closeButton.classList.add('closeButton')
-    closeButton.id='toDoCloseButton'
+  closeButton.innerText = "X";
+  content.appendChild(closeButton);
 
-    closeButton.innerText='X'
-    content.appendChild(closeButton)
-
-    let form =document.createElement('form')
-    form.classList.add('toDoForm')
-    form.innerHTML= 
-     `
+  let form = document.createElement("form");
+  form.classList.add("toDoForm");
+  form.innerHTML = `
     <div>
     
     <label for="title">To Do Name:</label><br>
@@ -60,16 +58,11 @@ const toDoForm=()=>{
     
   `;
 
-  content.appendChild(form)
+  content.appendChild(form);
 
+  formWindow.appendChild(content);
+  let center = document.querySelector(".center");
+  center.appendChild(formWindow);
+};
 
-
-
-  formWindow.appendChild(content)
-  let center= document.querySelector('.center')
-  center.appendChild(formWindow)
-    
-}
-
-
-export{toDoForm}
+export { toDoForm };

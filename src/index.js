@@ -6,7 +6,7 @@ import {
   loadProyect,
   deleteProyect,
 } from "./storageManager/storage.js";
-import { displaySidebar} from './sideBarElement/sidebarListDisplay.js'
+import { displaySidebar } from "./sideBarElement/sidebarListDisplay.js";
 import { displayWork } from "./displayWorkElement/displayWorkElement.js";
 import { addToDoButton } from "./AddToDoButton/addToDoButton.js";
 import { toDoForm } from "./ToDoForm/ToDoForm.js";
@@ -61,13 +61,13 @@ const objectGenerator = (proyect) => {
 window.addEventListener(
   "DOMContentLoaded",
   function () {
-    let proyect=loadProyect()
+    let proyect = loadProyect();
 
-    displaySidebar()
-    displayWork(proyect.getData().workList[0])
-    toDoForm()
-    addToDoButton()
-    workForm()
+    displaySidebar();
+    displayWork(proyect.getData().workList[0]);
+    toDoForm();
+    addToDoButton();
+    workForm();
     //console.log(proyect2.getData().workList[0].getData().toDoList[0].getData())
 
     // on load, sethome should run by itself so the page is not blank

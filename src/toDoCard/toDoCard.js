@@ -1,85 +1,83 @@
-import './toDoCard.css'
-const mainDis=document.querySelector('.mainDisplay')
-import { editToDoButton } from '../editToDoButton/editToDoButton'
-import { moveToDoButton } from '../moveToDoButton/moveToDoButton'
-const edit=(e)=>{
-    let card=e.target.closest('.toDoCard')
-    let toDoId= parseInt(card.dataset.id)
-    let workId= parseInt(document.querySelector('.header').dataset.id)
-    
-    editToDoButton(workId,toDoId)
-}
+import "./toDoCard.css";
+const mainDis = document.querySelector(".mainDisplay");
+import { editToDoButton } from "../editToDoButton/editToDoButton";
+import { moveToDoButton } from "../moveToDoButton/moveToDoButton";
+const edit = (e) => {
+  let card = e.target.closest(".toDoCard");
+  let toDoId = parseInt(card.dataset.id);
+  let workId = parseInt(document.querySelector(".header").dataset.id);
 
-const move=(e)=>{
-    let card=e.target.closest('.toDoCard')
-    let toDoId= parseInt(card.dataset.id)
-    let workId= parseInt(document.querySelector('.header').dataset.id)
-    moveToDoButton(workId,toDoId)
-}
+  editToDoButton(workId, toDoId);
+};
 
-const eventSelect =(e)=>{
-    if (e.target.classList.contains('toDoCardMoveButton')) {
-        move(e)
-    }
-    if (e.target.classList.contains('toDoCardEditButton')) {
-        edit(e)
-    }
-    
-}
+const move = (e) => {
+  let card = e.target.closest(".toDoCard");
+  let toDoId = parseInt(card.dataset.id);
+  let workId = parseInt(document.querySelector(".header").dataset.id);
+  moveToDoButton(workId, toDoId);
+};
 
-mainDis.addEventListener('click',eventSelect)
-const makeToDoCard=(toDo)=>{
-    const toDoCard = document.createElement('div')
-    toDoCard.classList.add('toDoCard')
-    toDoCard.setAttribute("data-id", toDo.getId())
+const eventSelect = (e) => {
+  if (e.target.classList.contains("toDoCardMoveButton")) {
+    move(e);
+  }
+  if (e.target.classList.contains("toDoCardEditButton")) {
+    edit(e);
+  }
+};
 
-    const top = document.createElement('div')
-    top.classList.add('top')
+mainDis.addEventListener("click", eventSelect);
+const makeToDoCard = (toDo) => {
+  const toDoCard = document.createElement("div");
+  toDoCard.classList.add("toDoCard");
+  toDoCard.setAttribute("data-id", toDo.getId());
 
-    const title=document.createElement('div')
-    title.classList.add('toDoTitle')
-    title.innerText=toDo.getData().title
-    const check=document.createElement('checklist')
-    check.classList.add('toDoCheck')
+  const top = document.createElement("div");
+  top.classList.add("top");
 
-    top.append(title,check)
+  const title = document.createElement("div");
+  title.classList.add("toDoTitle");
+  title.innerText = toDo.getData().title;
+  const check = document.createElement("checklist");
+  check.classList.add("toDoCheck");
 
-    const date =document.createElement('div')
-    date.classList.add('toDoDate')
-    date.innerText=toDo.getData().dueDate
+  top.append(title, check);
 
-    const desc= document.createElement('div')
-    desc.classList.add('toDoDesc')
-    desc.innerText=toDo.getData().description
-    
-    const bottom= document.createElement('div')
-    bottom.classList.add('bottom')
+  const date = document.createElement("div");
+  date.classList.add("toDoDate");
+  date.innerText = toDo.getData().dueDate;
 
-    const prios= document.createElement('div')
-    prios.classList.add('prios')
-    prios.innerText=toDo.getData().priority
+  const desc = document.createElement("div");
+  desc.classList.add("toDoDesc");
+  desc.innerText = toDo.getData().description;
 
-    const buttons= document.createElement('div')
-    buttons.classList.add('buttons')
+  const bottom = document.createElement("div");
+  bottom.classList.add("bottom");
 
-    const moveButton= document.createElement('button')
-    moveButton.classList.add('toDoCardMoveButton')
-    moveButton.innerText='move'
+  const prios = document.createElement("div");
+  prios.classList.add("prios");
+  prios.innerText = toDo.getData().priority;
 
-    const editButton =document.createElement('button')
-    editButton.classList.add('toDoCardEditButton')
-    editButton.innerText='edit'
+  const buttons = document.createElement("div");
+  buttons.classList.add("buttons");
 
-    buttons.appendChild(moveButton)
-    buttons.appendChild(editButton)
+  const moveButton = document.createElement("button");
+  moveButton.classList.add("toDoCardMoveButton");
+  moveButton.innerText = "move";
 
-    bottom.appendChild(prios)
-    bottom.appendChild(buttons)
+  const editButton = document.createElement("button");
+  editButton.classList.add("toDoCardEditButton");
+  editButton.innerText = "edit";
 
-    toDoCard.append(top, date, desc, bottom)
+  buttons.appendChild(moveButton);
+  buttons.appendChild(editButton);
 
-    return toDoCard
+  bottom.appendChild(prios);
+  bottom.appendChild(buttons);
 
-}
+  toDoCard.append(top, date, desc, bottom);
 
-export {makeToDoCard}
+  return toDoCard;
+};
+
+export { makeToDoCard };

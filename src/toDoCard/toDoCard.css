@@ -1,40 +1,30 @@
-.toDoCard{
-display: flex;
-flex-direction: column;
+.toDoCard {
+  display: flex;
+  flex-direction: column;
 }
 
-.top{
-display: flex;
+.top {
+  display: flex;
 }
-.toDoCard{
-
+.toDoCard {
 }
-.toDoCheck{
-
+.toDoCheck {
 }
 
-.toDoDesc{
-
+.toDoDesc {
 }
 
-.toDoDate{
-
+.toDoDate {
 }
-.prios{
-    
+.prios {
 }
-.bottom{
-    display: flex;
-
+.bottom {
+  display: flex;
 }
 
-.buttons{
-
+.buttons {
 }
-.toDoCardMoveButton{
-
+.toDoCardMoveButton {
 }
-.toDoCardEditButton{
-
+.toDoCardEditButton {
 }
-

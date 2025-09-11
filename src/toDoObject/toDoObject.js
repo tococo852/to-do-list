@@ -33,7 +33,7 @@ const createToDo = ({
     _data.dueDate = newDueDate;
   };
   const changePrio = (newPrio) => {
-    _data.priority=newPrio
+    _data.priority = newPrio;
   };
   const changeCheckList = (newCheck) => {
     _data.checklist = newCheck;
@@ -45,8 +45,7 @@ const createToDo = ({
   const getData = () => {
     return { ..._data };
   };
-  const displayData = () => {
-  };
+  const displayData = () => {};
   return {
     changeTitle,
     changeDescription,

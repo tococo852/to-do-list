@@ -1,73 +1,63 @@
 //goal is, returns a button that when pressed, displays a form to
 //add a todo to the current work
-import './addToDoButton.css'
-import { loadProyect,saveProyect } from '../storageManager/storage';
-import { createToDo } from '../toDoObject/toDoObject';
-import { displayWork } from '../displayWorkElement/displayWorkElement';
-import { displaySidebar } from '../sideBarElement/sidebarListDisplay';
- 
-const submitNew=(e)=>{
-   e.preventDefault();
-   console.log('add submit triggered')
-   let valid=false
-   if (valid) {
-      let proyect=loadProyect()
-      let data = new FormData(e.target)
-      let toDoData= Object.fromEntries([['id',proyect.getNewToDoId()],...data.entries()])
-      toDoData.checklist= toDoData.checklist=='on'
-      let newToDo=createToDo(toDoData)
+import "./addToDoButton.css";
+import { loadProyect, saveProyect } from "../storageManager/storage";
+import { createToDo } from "../toDoObject/toDoObject";
+import { displayWork } from "../displayWorkElement/displayWorkElement";
+import { displaySidebar } from "../sideBarElement/sidebarListDisplay";
 
-      let currWork=document.querySelector('.header')
-      let workId= parseInt(currWork.dataset.id)
+const submitNew = (e) => {
+  e.preventDefault();
+  console.log("add submit triggered");
+  let valid = false;
+  if (valid) {
+    let proyect = loadProyect();
+    let data = new FormData(e.target);
+    let toDoData = Object.fromEntries([
+      ["id", proyect.getNewToDoId()],
+      ...data.entries(),
+    ]);
+    toDoData.checklist = toDoData.checklist == "on";
+    let newToDo = createToDo(toDoData);
 
-      proyect.getWorkById(workId).addTodo(newToDo)
+    let currWork = document.querySelector(".header");
+    let workId = parseInt(currWork.dataset.id);
 
+    proyect.getWorkById(workId).addTodo(newToDo);
 
-      saveProyect(proyect)
-      displaySidebar()
-      displayWork(proyect.getWorkById(workId))
+    saveProyect(proyect);
+    displaySidebar();
+    displayWork(proyect.getWorkById(workId));
+  }
+  document.querySelector("#toDoCloseButton").click();
+};
 
+const closeForm = (e) => {
+  let form = document.querySelector("#toDoForm");
+  let closeButton = document.querySelector("#toDoCloseButton");
 
+  form.removeEventListener("submit", submitNew);
+  closeButton.removeEventListener("click", closeForm);
+  form.classList.add("hidden");
+};
 
-   }
-   document.querySelector("#toDoCloseButton").click();
+const openForm = (e) => {
+  let form = document.querySelector("#toDoForm");
+  form.classList.remove("hidden");
+  let closeButton = document.querySelector("#toDoCloseButton");
+  closeButton.addEventListener("click", closeForm);
 
- }
+  form.addEventListener("submit", submitNew);
+};
 
- const closeForm=(e)=>{
-    let form=document.querySelector('#toDoForm')
-    let closeButton=document.querySelector('#toDoCloseButton')
+const addToDoButton = () => {
+  let addButton = document.createElement("button");
+  addButton.classList.add("addToDoButton");
+  addButton.innerText = "add To Do";
 
-    form.removeEventListener('submit',submitNew)
-    closeButton.removeEventListener('click', closeForm)
-    form.classList.add('hidden')
+  addButton.addEventListener("click", openForm);
+  let main = document.querySelector(".main");
+  main.appendChild(addButton);
+};
 
-
-
-
-
- }
-
-  const openForm=(e)=>{
-    let form=document.querySelector('#toDoForm')
-    form.classList.remove('hidden')
-    let closeButton=document.querySelector('#toDoCloseButton')
-    closeButton.addEventListener('click',closeForm)
-    
-    form.addEventListener('submit',submitNew)
-
-
- }
-
-
-const addToDoButton=()=>{
-    let addButton= document.createElement('button')
-    addButton.classList.add('addToDoButton')
-    addButton.innerText='add To Do'
-
-    addButton.addEventListener('click',openForm)
-    let main= document.querySelector('.main')
-    main.appendChild(addButton)
-}
-
-export {addToDoButton}
+export { addToDoButton };

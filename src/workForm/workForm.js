@@ -4,30 +4,28 @@
 //probably hardest part of this proyect for current me
 
 //needs an edit version and a add version
-import './workForm.css';
+import "./workForm.css";
 //toDoForm is just the form that exist in the background
 //it should always be there hence it should be called by
 //the index on the start of the program
-const workForm=()=>{
+const workForm = () => {
+  let formWindow = document.createElement("div");
+  formWindow.classList.add("PopUpWindow");
+  formWindow.classList.add("hidden");
+  formWindow.id = "workForm";
 
-    let formWindow= document.createElement('div')
-    formWindow.classList.add('PopUpWindow')
-    formWindow.classList.add('hidden')
-    formWindow.id='workForm'
+  let content = document.createElement("div");
+  content.classList.add("popUpFormContainer");
 
-    let content=document.createElement('div')
-    content.classList.add('popUpFormContainer')
+  let closeButton = document.createElement("button");
+  closeButton.classList.add("closeButton");
+  closeButton.id = "workCloseButton";
+  closeButton.innerText = "X";
+  content.appendChild(closeButton);
 
-    let closeButton= document.createElement('button')
-    closeButton.classList.add('closeButton')
-    closeButton.id='workCloseButton'
-    closeButton.innerText='X'
-    content.appendChild(closeButton)
-
-    let form =document.createElement('form')
-    form.classList.add('workForm')
-    form.innerHTML= 
-     `
+  let form = document.createElement("form");
+  form.classList.add("workForm");
+  form.innerHTML = `
     <div>
     
     <label for="title">Work name:</label><br>
@@ -41,16 +39,11 @@ const workForm=()=>{
     
   `;
 
-  content.appendChild(form)
+  content.appendChild(form);
 
+  formWindow.appendChild(content);
+  let center = document.querySelector(".center");
+  center.appendChild(formWindow);
+};
 
-
-
-  formWindow.appendChild(content)
-  let center= document.querySelector('.center')
-  center.appendChild(formWindow)
-    
-}
-
-
-export{workForm}
+export { workForm };
