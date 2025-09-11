@@ -1,4 +1,33 @@
 import './toDoCard.css'
+const mainDis=document.querySelector('.mainDisplay')
+import { editToDoButton } from '../editToDoButton/editToDoButton'
+import { moveToDoButton } from '../moveToDoButton/moveToDoButton'
+const edit=(e)=>{
+    let card=e.target.closest('.toDoCard')
+    let toDoId= parseInt(card.dataset.id)
+    let workId= parseInt(document.querySelector('.header').dataset.id)
+    
+    editToDoButton(workId,toDoId)
+}
+
+const move=(e)=>{
+    let card=e.target.closest('.toDoCard')
+    let toDoId= parseInt(card.dataset.id)
+    let workId= parseInt(document.querySelector('.header').dataset.id)
+    moveToDoButton(workId,toDoId)
+}
+
+const eventSelect =(e)=>{
+    if (e.target.classList.contains('toDoCardMoveButton')) {
+        move(e)
+    }
+    if (e.target.classList.contains('toDoCardEditButton')) {
+        edit(e)
+    }
+    
+}
+
+mainDis.addEventListener('click',eventSelect)
 const makeToDoCard=(toDo)=>{
     const toDoCard = document.createElement('div')
     toDoCard.classList.add('toDoCard')
@@ -34,11 +63,11 @@ const makeToDoCard=(toDo)=>{
     buttons.classList.add('buttons')
 
     const moveButton= document.createElement('button')
-    moveButton.classList.add('moveButton')
+    moveButton.classList.add('toDoCardMoveButton')
     moveButton.innerText='move'
 
     const editButton =document.createElement('button')
-    editButton.classList.add('editButton')
+    editButton.classList.add('toDoCardEditButton')
     editButton.innerText='edit'
 
     buttons.appendChild(moveButton)

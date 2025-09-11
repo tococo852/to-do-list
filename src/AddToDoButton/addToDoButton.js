@@ -8,7 +8,8 @@ import { displaySidebar } from '../sideBarElement/sidebarListDisplay';
  
 const submitNew=(e)=>{
    e.preventDefault();
-   let valid=true
+   console.log('add submit triggered')
+   let valid=false
    if (valid) {
       let proyect=loadProyect()
       let data = new FormData(e.target)
@@ -27,10 +28,9 @@ const submitNew=(e)=>{
       displayWork(proyect.getWorkById(workId))
 
 
-      document.querySelector("#toDoCloseButton").click();
 
    }
-   
+   document.querySelector("#toDoCloseButton").click();
 
  }
 

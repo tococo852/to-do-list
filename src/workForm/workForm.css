@@ -1,0 +1,53 @@
+.PopUpWindow{
+  position: fixed;       /* stays in place above everything */
+  top: 0;
+  left: 0;
+  width: 100%;           /* full screen */
+  height: 100%;
+  background: rgba(0,0,0,0.5); /* dimmed background */
+  display: flex;         /* center content */
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;       
+}
+.PopUpWindow.hidden{
+    display: none;
+}
+
+.popUpFormContainer{
+
+  background-color: blanchedalmond;
+  width: 60rem;
+  height: 50rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.closeButton{
+  width: 2rem;
+  height: 2rem;
+  align-self: self-end;
+}
+
+.workForm{
+  display: flex;
+  gap: 5rem;
+  justify-content: center;
+  align-items: center;
+  height: 70%;
+}
+.workForm>div{
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.workForm>button{
+  margin-top: 1rem;
+  align-self:self-end;
+
+}
+
+.workSubmit{
+  padding: 1px;
+}
