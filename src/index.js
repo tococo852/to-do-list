@@ -11,6 +11,7 @@ import { displayWork } from "./displayWorkElement/displayWorkElement.js";
 import { addToDoButton } from "./AddToDoButton/addToDoButton.js";
 import { toDoForm } from "./ToDoForm/ToDoForm.js";
 import { workForm } from "./workForm/workForm.js";
+import { moveForm } from "./moveToDoForm/moveToDoForm.js";
 if (process.env.NODE_ENV !== "production") {
   console.log("Looks like we are in development mode!");
 }
@@ -68,6 +69,7 @@ window.addEventListener(
     toDoForm();
     addToDoButton();
     workForm();
+    moveForm()
     //console.log(proyect2.getData().workList[0].getData().toDoList[0].getData())
 
     // on load, sethome should run by itself so the page is not blank

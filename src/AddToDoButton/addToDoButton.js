@@ -9,7 +9,7 @@ import { displaySidebar } from "../sideBarElement/sidebarListDisplay";
 const submitNew = (e) => {
   e.preventDefault();
   console.log("add submit triggered");
-  let valid = false;
+  let valid = true;
   if (valid) {
     let proyect = loadProyect();
     let data = new FormData(e.target);

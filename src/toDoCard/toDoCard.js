@@ -2,6 +2,7 @@ import "./toDoCard.css";
 const mainDis = document.querySelector(".mainDisplay");
 import { editToDoButton } from "../editToDoButton/editToDoButton";
 import { moveToDoButton } from "../moveToDoButton/moveToDoButton";
+import { deleteToDo } from "../deleteToDoButton/deleteToDoButton";
 const edit = (e) => {
   let card = e.target.closest(".toDoCard");
   let toDoId = parseInt(card.dataset.id);
@@ -17,6 +18,13 @@ const move = (e) => {
   moveToDoButton(workId, toDoId);
 };
 
+const erase=(e)=>{
+  let card = e.target.closest(".toDoCard");
+  let toDoId = parseInt(card.dataset.id);
+  let workId = parseInt(document.querySelector(".header").dataset.id);
+  deleteToDo(workId,toDoId)
+}
+
 const eventSelect = (e) => {
   if (e.target.classList.contains("toDoCardMoveButton")) {
     move(e);
@@ -24,6 +32,10 @@ const eventSelect = (e) => {
   if (e.target.classList.contains("toDoCardEditButton")) {
     edit(e);
   }
+  if (e.target.classList.contains("toDoCardDeleteButton")) {
+    erase(e);
+  }
+
 };
 
 mainDis.addEventListener("click", eventSelect);
@@ -69,8 +81,13 @@ const makeToDoCard = (toDo) => {
   editButton.classList.add("toDoCardEditButton");
   editButton.innerText = "edit";
 
+  const deleteButton = document.createElement("button");
+  deleteButton.classList.add("toDoCardDeleteButton");
+  deleteButton.innerText = "delete";
+
   buttons.appendChild(moveButton);
   buttons.appendChild(editButton);
+  buttons.appendChild(deleteButton)
 
   bottom.appendChild(prios);
   bottom.appendChild(buttons);

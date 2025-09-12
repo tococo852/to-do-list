@@ -6,13 +6,7 @@ import { displayWork } from "../displayWorkElement/displayWorkElement";
 const editToDoButton = (workId, toDoId) => {
   const submitEdit = (e) => {
     e.preventDefault();
-    //to do next
-    //load the toDo object corresponding to the ids
-    //use that data to fill out the form
-    //change the add todo function to edit todo at the end on submit
-    //there is no edit todo function in work, get the desired todo reference
-    //and use todo functions to edit it according to the form
-
+   
     let valid = true;
     if (valid) {
       let proyect = loadProyect();
@@ -56,12 +50,10 @@ const editToDoButton = (workId, toDoId) => {
 
     let form = document.querySelector(".toDoForm");
     let toDoData = proyect.getWorkById(workId).getToDoById(toDoId).getData();
-    //open form needs to auto fill the form using toDo data
     form.elements.namedItem("title").value = toDoData.title;
     form.elements.namedItem("description").value = toDoData.description;
     form.elements.namedItem("dueDate").value = toDoData.dueDate;
     form.elements.namedItem("priority").value = toDoData.priority.toString();
-    console.log(toDoData.checklist);
     form.elements.namedItem("checklist")[1].checked = toDoData.checklist;
 
     formWindow.addEventListener("submit", submitEdit);
