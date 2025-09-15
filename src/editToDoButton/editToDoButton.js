@@ -35,8 +35,9 @@ const editToDoButton = (workId, toDoId) => {
     formWindow.removeEventListener("submit", submitEdit);
     closeButton.removeEventListener("click", closeForm);
     let form = document.querySelector(".toDoForm");
-    form.reset();
+    let trueform=document.querySelector('.toDoForm')
 
+      trueform.reset();
     formWindow.classList.add("hidden");
   };
 

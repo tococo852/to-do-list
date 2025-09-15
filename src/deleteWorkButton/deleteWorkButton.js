@@ -19,12 +19,12 @@ if (e.target.matches('button') && e.target.matches('.sidebarDelete')) {
     let currDisplay=parseInt(
         document.querySelector('.header').dataset.id
     )
+    console.log(currDisplay)
     if (currDisplay==workId) {
+        console.log('deleted current work, displaying first')
         displayWork(proyect.getData().workList[0])
     }
-    else{
-        displayWork(workId)
-    }
+
 
 }
  

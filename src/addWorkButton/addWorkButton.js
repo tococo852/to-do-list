@@ -35,8 +35,10 @@ const closeForm = (e) => {
 
   form.removeEventListener("submit", submitNew);
   closeButton.removeEventListener("click", closeForm);
+      let trueform=document.querySelector('.workForm')
+
+      trueform.reset();
   form.classList.add("hidden");
-      form.reset();
 
 };
 

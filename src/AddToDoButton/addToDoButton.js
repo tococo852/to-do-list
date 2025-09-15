@@ -36,9 +36,11 @@ const closeForm = (e) => {
   let form = document.querySelector("#toDoForm");
   let closeButton = document.querySelector("#toDoCloseButton");
 
+  let trueform=document.querySelector('.toDoForm')
+
   form.removeEventListener("submit", submitNew);
   closeButton.removeEventListener("click", closeForm);
-      form.reset();
+      trueform.reset();
 
   form.classList.add("hidden");
 };
