@@ -6,7 +6,7 @@ import { displayWork } from "../displayWorkElement/displayWorkElement";
 const editToDoButton = (workId, toDoId) => {
   const submitEdit = (e) => {
     e.preventDefault();
-   
+
     let valid = true;
     if (valid) {
       let proyect = loadProyect();
@@ -35,9 +35,9 @@ const editToDoButton = (workId, toDoId) => {
     formWindow.removeEventListener("submit", submitEdit);
     closeButton.removeEventListener("click", closeForm);
     let form = document.querySelector(".toDoForm");
-    let trueform=document.querySelector('.toDoForm')
+    let trueform = document.querySelector(".toDoForm");
 
-      trueform.reset();
+    trueform.reset();
     formWindow.classList.add("hidden");
   };
 

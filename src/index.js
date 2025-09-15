@@ -26,7 +26,6 @@ const changeClass = (newClass, builder) => {
   }
 };
 
-
 const objectGenerator = (proyect) => {
   const makeToDo = () => {
     let CurrDoId = proyect.getNewToDoId();
@@ -66,7 +65,7 @@ window.addEventListener(
     toDoForm();
     addToDoButton();
     workForm();
-    moveForm()
+    moveForm();
     //console.log(proyect2.getData().workList[0].getData().toDoList[0].getData())
 
     // on load, sethome should run by itself so the page is not blank

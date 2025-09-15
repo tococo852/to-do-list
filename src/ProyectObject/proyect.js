@@ -56,7 +56,7 @@ const createProyect = ({ oldWorkId, oldToDoId, workList }) => {
   };
   //must move a todo from workA to workB in the work list
   const MoveToDoInWork = (sourceWorkId, DestinyWorkId, toDoId) => {
-    let moving= DeleteToDoInWork(sourceWorkId, toDoId)
+    let moving = DeleteToDoInWork(sourceWorkId, toDoId);
 
     AddToDoInWork(DestinyWorkId, moving);
   };

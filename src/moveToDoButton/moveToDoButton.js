@@ -9,17 +9,20 @@ import { loadProyect } from "../storageManager/storage";
 import { displaySidebar } from "../sideBarElement/sidebarListDisplay";
 import { displayWork } from "../displayWorkElement/displayWorkElement";
 
-
 const moveToDoButton = (workId, toDoId) => {
-    const submitmove = (e) => {
+  const submitmove = (e) => {
     e.preventDefault();
-   
+
     let valid = true;
     if (valid) {
       let proyect = loadProyect();
       let data = new FormData(e.target);
-      let destiny = data.get('destinyId')
-      proyect.MoveToDoInWork(parseInt(workId), parseInt(destiny), parseInt(toDoId))
+      let destiny = data.get("destinyId");
+      proyect.MoveToDoInWork(
+        parseInt(workId),
+        parseInt(destiny),
+        parseInt(toDoId),
+      );
       saveProyect(proyect);
       displaySidebar();
       displayWork(proyect.getWorkById(workId));
@@ -33,21 +36,20 @@ const moveToDoButton = (workId, toDoId) => {
     formWindow.removeEventListener("submit", submitmove);
     closeButton.removeEventListener("click", closeForm);
 
-
     formWindow.classList.add("hidden");
   };
-   
-    const openForm=()=>{
-        let formWindow = document.querySelector("#moveForm");
+
+  const openForm = () => {
+    let formWindow = document.querySelector("#moveForm");
     formWindow.classList.remove("hidden");
 
     let closeButton = document.querySelector("#moveCloseButton");
     closeButton.addEventListener("click", closeForm);
 
     formWindow.addEventListener("submit", submitmove);
-    }
-    createMoveSelection(workId)
-    openForm()
+  };
+  createMoveSelection(workId);
+  openForm();
 };
 
 export { moveToDoButton };

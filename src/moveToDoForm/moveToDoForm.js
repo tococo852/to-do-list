@@ -1,5 +1,5 @@
-import './moveToDoForm.css'
-import { loadProyect } from '../storageManager/storage'
+import "./moveToDoForm.css";
+import { loadProyect } from "../storageManager/storage";
 /*
   <select id="priority" name="priority">
     <option value="1">1</option>
@@ -7,33 +7,31 @@ import { loadProyect } from '../storageManager/storage'
     <option value="3">3</option>
   </select><br><br>
 */
-const createMoveSelection=(workId)=>{
-    let proyect =loadProyect()
-    let work=proyect.getWorkById(workId)
-    let origin= document.createElement('div')
-    origin.id='originPlaceholder'
-    origin.innerText=`the work called "${work.getName()}"`
-    document.querySelector('#originPlaceholder').replaceWith(origin);
+const createMoveSelection = (workId) => {
+  let proyect = loadProyect();
+  let work = proyect.getWorkById(workId);
+  let origin = document.createElement("div");
+  origin.id = "originPlaceholder";
+  origin.innerText = `the work called "${work.getName()}"`;
+  document.querySelector("#originPlaceholder").replaceWith(origin);
 
-    let select = document.createElement('select')
-    select.id='selectPlaceholder'
-    select.name='destinyId'
-    proyect.getData().workList.map(work =>{
-        if (parseInt(work.getId())!=parseInt(workId)) {
-            let option=document.createElement('option')
-            option.value=work.getId()
-            option.innerText= work.getName()
-            select.appendChild(option)
-        }
-    })
-    document.querySelector('#selectPlaceholder').replaceWith(select);
+  let select = document.createElement("select");
+  select.id = "selectPlaceholder";
+  select.name = "destinyId";
+  proyect.getData().workList.map((work) => {
+    if (parseInt(work.getId()) != parseInt(workId)) {
+      let option = document.createElement("option");
+      option.value = work.getId();
+      option.innerText = work.getName();
+      select.appendChild(option);
+    }
+  });
+  document.querySelector("#selectPlaceholder").replaceWith(select);
+};
+import "./moveToDoForm.css";
 
-
-}
-import './moveToDoForm.css'
-
-const moveForm=()=>{
-    let formWindow = document.createElement("div");
+const moveForm = () => {
+  let formWindow = document.createElement("div");
   formWindow.classList.add("PopUpWindow");
   formWindow.classList.add("hidden");
   formWindow.id = "moveForm";
@@ -73,6 +71,6 @@ const moveForm=()=>{
   formWindow.appendChild(content);
   let center = document.querySelector(".center");
   center.appendChild(formWindow);
-}
+};
 
-export {moveForm,createMoveSelection}
+export { moveForm, createMoveSelection };

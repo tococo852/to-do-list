@@ -27,7 +27,6 @@ const createWork = ({ id, name, toDoList }) => {
 
   //change to splice instead of filter to avoid deleting the reference
   const removeToDo = (toDoId) => {
-
     return toDos.splice(getIndex(toDos, toDoId), 1)[0];
   };
   //it must fint

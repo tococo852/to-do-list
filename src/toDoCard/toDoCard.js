@@ -18,12 +18,12 @@ const move = (e) => {
   moveToDoButton(workId, toDoId);
 };
 
-const erase=(e)=>{
+const erase = (e) => {
   let card = e.target.closest(".toDoCard");
   let toDoId = parseInt(card.dataset.id);
   let workId = parseInt(document.querySelector(".header").dataset.id);
-  deleteToDo(workId,toDoId)
-}
+  deleteToDo(workId, toDoId);
+};
 
 const eventSelect = (e) => {
   if (e.target.classList.contains("toDoCardMoveButton")) {
@@ -35,7 +35,6 @@ const eventSelect = (e) => {
   if (e.target.classList.contains("toDoCardDeleteButton")) {
     erase(e);
   }
-
 };
 
 mainDis.addEventListener("click", eventSelect);
@@ -87,7 +86,7 @@ const makeToDoCard = (toDo) => {
 
   buttons.appendChild(moveButton);
   buttons.appendChild(editButton);
-  buttons.appendChild(deleteButton)
+  buttons.appendChild(deleteButton);
 
   bottom.appendChild(prios);
   bottom.appendChild(buttons);

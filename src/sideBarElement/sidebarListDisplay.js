@@ -4,8 +4,6 @@ import { addWorkButton } from "../addWorkButton/addWorkButton";
 import { runDelete } from "../deleteWorkButton/deleteWorkButton";
 //takes a work objects and turns it into an element
 
-
-
 const makeWorkElement = (work) => {
   let workEle = document.createElement("div");
   workEle.classList.add("workSidebarDisplay");
@@ -15,12 +13,11 @@ const makeWorkElement = (work) => {
   workName.setAttribute("data-id", work.getId());
   workName.innerText = work.getName();
 
-  let deleteButton=document.createElement('button')
-  deleteButton.classList.add('sidebarDelete')
-  deleteButton.innerText='X'
-  workName.appendChild(deleteButton)
+  let deleteButton = document.createElement("button");
+  deleteButton.classList.add("sidebarDelete");
+  deleteButton.innerText = "X";
+  workName.appendChild(deleteButton);
   workEle.appendChild(workName);
-
 
   let toDoListEle = document.createElement("ul");
 
@@ -29,12 +26,11 @@ const makeWorkElement = (work) => {
     //make an element for the toDO and append it to work ele
     let toDoEle = document.createElement("li");
     toDoEle.innerText = toDo.getData().title;
-    
+
     toDoListEle.appendChild(toDoEle);
   });
 
   workEle.appendChild(toDoListEle);
- 
 
   return workEle;
 };
@@ -64,16 +60,15 @@ const displaySidebar = () => {
   });
 };
 
-let sidebar=document.querySelector('.sidebar')
-sidebar.addEventListener('click',runDelete)
+let sidebar = document.querySelector(".sidebar");
+sidebar.addEventListener("click", runDelete);
 
 sidebar.addEventListener("click", (e) => {
-    if (e.target.matches('.workSidebarName') && !e.target.matches('button')) {
-      let id=parseInt(e.target.dataset.id)
-      let proyect= loadProyect()
-      let work=proyect.getWorkById(id)
-          displayWork(work);
-
-    }
-  });
+  if (e.target.matches(".workSidebarName") && !e.target.matches("button")) {
+    let id = parseInt(e.target.dataset.id);
+    let proyect = loadProyect();
+    let work = proyect.getWorkById(id);
+    displayWork(work);
+  }
+});
 export { displaySidebar };

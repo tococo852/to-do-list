@@ -35,11 +35,10 @@ const closeForm = (e) => {
 
   form.removeEventListener("submit", submitNew);
   closeButton.removeEventListener("click", closeForm);
-      let trueform=document.querySelector('.workForm')
+  let trueform = document.querySelector(".workForm");
 
-      trueform.reset();
+  trueform.reset();
   form.classList.add("hidden");
-
 };
 
 const openForm = (e) => {
