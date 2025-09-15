@@ -26,10 +26,7 @@ const changeClass = (newClass, builder) => {
   }
 };
 
-document.addEventListener("click", (e) => {
-  if (e.target.tagName === "BUTTON") {
-  }
-});
+
 const objectGenerator = (proyect) => {
   const makeToDo = () => {
     let CurrDoId = proyect.getNewToDoId();
