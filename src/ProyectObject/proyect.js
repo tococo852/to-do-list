@@ -25,7 +25,7 @@ const createProyect = ({ oldWorkId, oldToDoId, workList }) => {
     return _currToDoId;
   };
   const getIndex = (list, id) => {
-    let index = list.findIndex((obj) => obj.getId() === id);
+    let index = list.findIndex((obj) => parseInt(obj.getId()) === parseInt(id));
     if (index >= 0) {
       return index;
     }
@@ -40,23 +40,25 @@ const createProyect = ({ oldWorkId, oldToDoId, workList }) => {
   };
   //must delete the target work in the list and all its todo's
   const DeleteWork = (workId) => {
-    return workList.splice(getIndex(workList, workId), 1);
+    return Works.splice(getIndex(Works, workId), 1);
   };
   //must edit detailts of work
   const EditWork = (workId) => {};
   //must add a new todo, to a existing work in worklist
   const AddToDoInWork = (workId, toDo) => {
-    workList[getIndex(workList, workId)].AddToDo(toDo);
+    Works[getIndex(Works, workId)].addTodo(toDo);
   };
   //must edit the toDo data in that work
   const editToDoInWork = (workId, toDoId) => {};
   //must remove a todo from a work in the worklist
   const DeleteToDoInWork = (workId, toDoId) => {
-    return workList[getIndex(workList, workId)].removeToDo(toDoId);
+    return Works[getIndex(Works, workId)].removeToDo(toDoId);
   };
   //must move a todo from workA to workB in the work list
   const MoveToDoInWork = (sourceWorkId, DestinyWorkId, toDoId) => {
-    AddToDoInWork(DestinyWorkId, DeleteToDoInWork(sourceWorkId, toDoId));
+    let moving= DeleteToDoInWork(sourceWorkId, toDoId)
+
+    AddToDoInWork(DestinyWorkId, moving);
   };
 
   const getData = () => {

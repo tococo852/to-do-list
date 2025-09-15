@@ -4,25 +4,22 @@
 //go to targeted work and add the copy of the todo
 
 import { createMoveSelection } from "../moveToDoForm/moveToDoForm";
+import { saveProyect } from "../storageManager/storage";
+import { loadProyect } from "../storageManager/storage";
+import { displaySidebar } from "../sideBarElement/sidebarListDisplay";
+import { displayWork } from "../displayWorkElement/displayWorkElement";
+
+
 const moveToDoButton = (workId, toDoId) => {
     const submitmove = (e) => {
     e.preventDefault();
    
-    let valid = false;
+    let valid = true;
     if (valid) {
       let proyect = loadProyect();
       let data = new FormData(e.target);
-      let toDoData = Object.fromEntries([["id", toDoId], ...data.entries()]);
-      toDoData.checklist = toDoData.checklist == "on";
-
-      let oldToDo = proyect.getWorkById(workId).getToDoById(toDoId);
-
-      oldToDo.changeTitle(toDoData.title);
-      oldToDo.changeDescription(toDoData.description);
-      oldToDo.changeDueDate(toDoData.dueDate);
-      oldToDo.changePrio(toDoData.priority);
-      oldToDo.changeCheckList(toDoData.checklist);
-
+      let destiny = data.get('destinyId')
+      proyect.MoveToDoInWork(parseInt(workId), parseInt(destiny), parseInt(toDoId))
       saveProyect(proyect);
       displaySidebar();
       displayWork(proyect.getWorkById(workId));
