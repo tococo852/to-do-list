@@ -38,6 +38,8 @@ const closeForm = (e) => {
 
   form.removeEventListener("submit", submitNew);
   closeButton.removeEventListener("click", closeForm);
+      form.reset();
+
   form.classList.add("hidden");
 };
 
