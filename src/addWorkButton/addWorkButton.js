@@ -53,7 +53,6 @@ const openForm = (e) => {
 const addWorkButton = () => {
   let addButton = document.createElement("button");
   addButton.classList.add("addWorkButton");
-  addButton.innerText = "add Work";
 
   addButton.addEventListener("click", openForm);
   return addButton;

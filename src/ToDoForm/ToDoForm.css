@@ -8,6 +8,7 @@
   display: flex; /* center content */
   justify-content: center;
   align-items: center;
+  padding-bottom: 10rem;
   z-index: 1000;
 }
 .PopUpWindow.hidden {
@@ -15,12 +16,24 @@
 }
 
 .popUpFormContainer {
-  background-color: blanchedalmond;
-  width: 60rem;
-  height: 50rem;
+  background-color: #d8d8f7;
   display: flex;
   flex-direction: column;
+  border-radius: 3rem;
+
+  /* Let the size be based on content */
+  width: auto;
+  height: auto;
+
+  /* Optional: give it limits so it doesn’t blow up too big */
+  max-width: 90%;
+  max-height: 90%;
+  padding: 1rem; /* add breathing room inside */
+  overflow-y: auto; /* scroll if content is too tall */
+
+  gap: 1rem;
 }
+
 
 .closeButton {
   width: 2rem;
@@ -34,6 +47,7 @@
   justify-content: center;
   align-items: center;
   height: 70%;
+  padding: 5rem;
 }
 .toDoForm > div {
   display: flex;
@@ -49,3 +63,62 @@
 .ToDoSubmit {
   padding: 1px;
 }
+
+
+button.closeButton {
+  appearance: none;
+  background: url('../assets/close.svg') no-repeat center;
+  background-size: 3.5rem;
+  padding: 1rem;
+  margin-top: 1rem;
+  margin-right: 1rem;
+  border: none;
+}
+
+button.closeButton:hover{
+  border: 1px solid rgb(88, 87, 87);
+  background: url('../assets/close.svg') no-repeat center;
+  background-size: 3.5rem;
+  padding: 1rem;
+  border-radius: 1rem;
+  
+}
+
+
+form {
+  display: flex;
+  gap: 1rem;
+  margin: 0 auto;
+}
+
+label {
+  font-weight: bold;
+  margin-bottom: 0.25rem;
+}
+
+input, select, textarea {
+  padding: 0.5rem;
+  border: 1px solid #a5a3a3;
+  border-radius: 6px;
+  font-size: 1rem;
+  transition: border-color 0.2s;
+}
+
+input:focus, select:focus, textarea:focus {
+  border-color: #007bff;
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(0,123,255,0.2);
+}
+
+button[type="submit"] {
+  background: #2f78c2;
+  color: rgb(231, 229, 229);
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.2s;
+  font-weight: bold;
+  font-size: 1rem;
+}
+

@@ -21,7 +21,6 @@ const toDoForm = () => {
   closeButton.classList.add("closeButton");
   closeButton.id = "toDoCloseButton";
 
-  closeButton.innerText = "X";
   content.appendChild(closeButton);
 
   let form = document.createElement("form");

@@ -90,24 +90,33 @@ body {
   width: 100%;
 }
 .header {
-  background-color: antiquewhite;
+  background-color: #fffff7;
   flex: 0 0 5rem;
+  
+  border-bottom: 1px dotted #2c323a;
 }
 .footer {
-  background-color: aqua;
+  background-color: #133E87;
   flex: 0 0 5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
-.sidebar {
-  flex: 0 0 16rem;
-  background-color: aquamarine;
-}
+
 .mainDisplay {
   flex: 1 0 auto;
-  background-color: azure;
+  background-color: #fffff7;
 }
 
 .center {
   flex: 1 0 auto;
   display: flex;
-  background-color: beige;
+  background-color: #fffff7;
+}
+
+
+input, select, textarea, button {
+  border: none;
+  outline: none;
+  background: none;
 }

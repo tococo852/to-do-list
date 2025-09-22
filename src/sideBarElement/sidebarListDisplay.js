@@ -2,6 +2,7 @@ import { displayWork } from "../displayWorkElement/displayWorkElement";
 import { loadProyect } from "../storageManager/storage";
 import { addWorkButton } from "../addWorkButton/addWorkButton";
 import { runDelete } from "../deleteWorkButton/deleteWorkButton";
+import './sidebarList.css'
 //takes a work objects and turns it into an element
 
 const makeWorkElement = (work) => {
@@ -15,8 +16,8 @@ const makeWorkElement = (work) => {
 
   let deleteButton = document.createElement("button");
   deleteButton.classList.add("sidebarDelete");
-  deleteButton.innerText = "X";
   workName.appendChild(deleteButton);
+  
   workEle.appendChild(workName);
 
   let toDoListEle = document.createElement("ul");
@@ -52,7 +53,7 @@ const displaySidebar = () => {
 
   let sidebarHeader = document.createElement("div");
   sidebarHeader.classList.add("sidebarHeader");
-  sidebarHeader.innerHTML = "All your works!";
+  sidebarHeader.innerText = "All your works!";
   sidebarHeader.appendChild(addWorkButton());
   sidebar.appendChild(sidebarHeader);
   elementList.map((child) => {

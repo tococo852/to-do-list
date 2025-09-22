@@ -57,7 +57,6 @@ const openForm = (e) => {
 const addToDoButton = () => {
   let addButton = document.createElement("button");
   addButton.classList.add("addToDoButton");
-  addButton.innerText = "add To Do";
 
   addButton.addEventListener("click", openForm);
   let main = document.querySelector(".main");

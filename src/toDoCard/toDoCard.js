@@ -51,6 +51,7 @@ const makeToDoCard = (toDo) => {
   title.innerText = toDo.getData().title;
   const check = document.createElement("checklist");
   check.classList.add("toDoCheck");
+  check.setAttribute('data-check',toDo.getData().checklist)
 
   top.append(title, check);
 
@@ -67,22 +68,19 @@ const makeToDoCard = (toDo) => {
 
   const prios = document.createElement("div");
   prios.classList.add("prios");
-  prios.innerText = toDo.getData().priority;
+  prios.setAttribute("data-prio",toDo.getData().priority)
 
   const buttons = document.createElement("div");
   buttons.classList.add("buttons");
 
   const moveButton = document.createElement("button");
   moveButton.classList.add("toDoCardMoveButton");
-  moveButton.innerText = "move";
 
   const editButton = document.createElement("button");
   editButton.classList.add("toDoCardEditButton");
-  editButton.innerText = "edit";
 
   const deleteButton = document.createElement("button");
   deleteButton.classList.add("toDoCardDeleteButton");
-  deleteButton.innerText = "delete";
 
   buttons.appendChild(moveButton);
   buttons.appendChild(editButton);

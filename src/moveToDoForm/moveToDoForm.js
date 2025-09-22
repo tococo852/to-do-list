@@ -43,7 +43,6 @@ const moveForm = () => {
   closeButton.classList.add("closeButton");
   closeButton.id = "moveCloseButton";
 
-  closeButton.innerText = "X";
   content.appendChild(closeButton);
 
   let form = document.createElement("form");

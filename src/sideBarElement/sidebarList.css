@@ -1,0 +1,31 @@
+.sidebar {
+  flex: 0 0 16rem;
+  background-color: #608BC1;
+  padding-left: 1rem;
+}
+
+
+.workSidebarDisplay ul {
+  list-style: none; /* remove default bullet */
+  padding-left: 3rem; /* space for the image */
+}
+.workSidebarDisplay ul li{
+    padding-bottom: 1px;
+}
+.workSidebarDisplay ul li::marker {
+  content: url('../assets/sub.svg');
+}
+
+.sidebarDelete{
+    background: url('../assets/delete_x.svg') no-repeat center;
+    padding: 1rem;
+    padding-top: 2rem;
+}
+
+.workSidebarName{
+    font-size: 1.1rem;
+}
+
+.sidebarHeader{
+    font-size: 1.4rem;
+}
