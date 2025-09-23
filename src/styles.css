@@ -106,6 +106,9 @@ body {
 .mainDisplay {
   flex: 1 0 auto;
   background-color: #fffff7;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(15rem,1fr));
+  gap: 10px;
 }
 
 .center {

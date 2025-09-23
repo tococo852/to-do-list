@@ -21,13 +21,16 @@
 .toDoCard {
   background-color: #CBDCEB;
 }
-.toDoCheck {
-}
+
 
 .toDoDesc {
+  justify-self: center;
+  padding: 2rem;
+  
 }
 
 .toDoDate {
+  justify-self: self-start;
 }
 .toDoTitle{
   padding-top: 0.32rem;
@@ -79,8 +82,7 @@ padding: 1rem;
   justify-content: space-between;
 }
 
-.buttons {
-}
+
 .toDoCardMoveButton {
   background: url('../assets/move.svg') no-repeat center;
   padding: 1rem;
